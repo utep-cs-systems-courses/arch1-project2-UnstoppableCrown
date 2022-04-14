@@ -1,7 +1,7 @@
 # makfile configuration
-COMMON_OBJECTS  = uimain.o # WdinterruptHandler.o
+COMMON_OBJECTS  = uimain.o buzzer.o # WdinterruptHandler.o
 CPU             = msp430g2553
-CFLAGS          = -mmcu=${CPU} -I
+CFLAGS          = -mmcu=${CPU} -I/h
 LDFLAGS		= -L/opt/ti/msp430_gcc/include
 
 #switch the compiler (for the internal make rules)
@@ -20,6 +20,6 @@ load: led.elf
 clean:
 	rm -f *.o *.elf *~ *#
 
-main.o: led.h libTimer.h
+main.o: led.h libTimer.h buzzer.h
 
 wdInterruptHandler.o:  led.h
